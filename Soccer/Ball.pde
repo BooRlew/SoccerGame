@@ -17,7 +17,7 @@ class Ball{
   }
   
   void move(float dx, float dy){
-    if (x <= 25 || x <= width - 25){
+    if (x <= 25 || x >= width - 25){
       dx *= -1; 
     }
     x += dx; 
