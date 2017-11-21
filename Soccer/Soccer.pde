@@ -1,9 +1,14 @@
-Player ball;
+Ball ball;
+
+float xSpeed, ySpeed;
 
 void setup(){
   size(600, 800);
   
-  ball = new Player();
+  ball = new Ball();
+  
+  xSpeed = 3;
+  ySpeed = 3;
   
 }
 
@@ -12,5 +17,5 @@ void draw(){
   
   ball.display();
   
-  ball.move(0,3);
+  ball.move(xSpeed,ySpeed);
 }

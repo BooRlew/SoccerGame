@@ -1,9 +1,9 @@
-class Player{
+class Ball{
   //data
   float x, y;
   
   //constructor
-  Player(){
+  Ball(){
     x = width/2;
     y = height/2 + height/4; 
   }
@@ -17,6 +17,9 @@ class Player{
   }
   
   void move(float dx, float dy){
+    if (x <= 25 || x <= width - 25){
+      dx *= -1; 
+    }
     x += dx; 
     y -= dy;
   }
