@@ -1,5 +1,6 @@
 Ball ball;
 Goalie goalie;
+KickDirection kick;
 
 boolean ballmoving = false;
 float xSpeed, ySpeed;
@@ -9,10 +10,7 @@ void setup(){
   
   ball = new Ball();
   goalie = new Goalie();
-  
-  //xSpeed = 1;
-  //ySpeed = 2;
-  
+  kick = new KickDirection(); 
 }
 
 void draw(){
@@ -20,10 +18,11 @@ void draw(){
   
   ball.display();
   goalie.displaygoalie();
-  //goalie.movegoalie();
+  goalie.movegoalie();
+  kick.kickChange();
   
   if (ballmoving == true){
-    ball.move();//xSpeed,ySpeed);
+    ball.move();
   }
 }
 

@@ -21,7 +21,7 @@ class Goalie{
   }
   
   void movegoalie(){
-    println(goaliex);
+    //println(goaliex);
     goaliex += goaliespeed;
     if ((goaliex >= goalieright-(goaliewidth/2)) || (goaliex <= goalieleft+(goaliewidth/2))){
       goaliespeed *= -1;
