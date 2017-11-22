@@ -10,8 +10,8 @@ void setup(){
   ball = new Ball();
   goalie = new Goalie();
   
-  xSpeed = 3;
-  ySpeed = 3;
+  //xSpeed = 1;
+  //ySpeed = 2;
   
 }
 
@@ -23,7 +23,7 @@ void draw(){
   //goalie.movegoalie();
   
   if (ballmoving == true){
-    ball.move(xSpeed,ySpeed);
+    ball.move();//xSpeed,ySpeed);
   }
 }
 
