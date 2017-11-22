@@ -1,11 +1,18 @@
-class goalie{
+class Goalie{
   float goaliex, goaliey;
   float goaliespeed;
   float goalieleft, goalieright;
+  float goaliewidth, goalieheight;
   
-  goalie(){
+  Goalie(){
     goaliex = width/2;
     goaliey = height/4;
+    goaliewidth = 100;
+    goalieheight = 10;
+  }
+  
+  void displaygoalie(){
+    //rect(100, 100, 100, 100);
   }
   
   void movegoalie(){

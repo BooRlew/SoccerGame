@@ -1,5 +1,7 @@
 Ball ball;
+Goalie goalie;
 
+boolean ballmoving = false;
 float xSpeed, ySpeed;
 
 void setup(){
@@ -16,6 +18,13 @@ void draw(){
   background(18, 183, 40);
   
   ball.display();
+  //goalie.movegoalie();
   
-  ball.move(xSpeed,ySpeed);
+  if (ballmoving == true){
+    ball.move(xSpeed,ySpeed);
+  }
+}
+
+void mousePressed(){
+  ballmoving = true;
 }
