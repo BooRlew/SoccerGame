@@ -9,6 +9,9 @@ class Goalie{
     goaliey = height/4;
     goaliewidth = 100;
     goalieheight = 10;
+    goalieright = width;
+    goalieleft = 0;
+    goaliespeed = 1;
   }
   
   void displaygoalie(){
@@ -18,9 +21,10 @@ class Goalie{
   }
   
   void movegoalie(){
+    println(goaliex);
     goaliex += goaliespeed;
-    if ((goaliex >= goalieright) || (goaliex <= goalieleft)){
-      goaliex *= -goaliespeed;
+    if ((goaliex >= goalieright-(goaliewidth/2)) || (goaliex <= goalieleft+(goaliewidth/2))){
+      goaliespeed *= -1;
     }
   }
 }
