@@ -18,7 +18,7 @@ class Ball {
 
   //behaviour
   void display() {
-    fill(255);
+    //fill(255);
     ellipseMode(CENTER);
     ellipse(x, y, 50, 50);
   }

@@ -11,12 +11,12 @@ class Goalie{
     goalieheight = 10;
     goalieright = width;
     goalieleft = 0;
-    goaliespeed = 5;
+    goaliespeed = 3;
   }
   
   void displaygoalie(){
     rectMode(CENTER);
-    fill(0);
+    //fill(0);
     rect(goaliex, goaliey, goaliewidth, goalieheight);
   }
   
