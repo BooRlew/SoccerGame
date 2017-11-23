@@ -11,7 +11,7 @@ class Goalie{
     goalieheight = 10;
     goalieright = width;
     goalieleft = 0;
-    goaliespeed = 1;
+    goaliespeed = 5;
   }
   
   void displaygoalie(){
