@@ -16,7 +16,7 @@ class Goalie{
   
   void displaygoalie(){
     rectMode(CENTER);
-    //fill(0);
+    fill(0);
     rect(goaliex, goaliey, goaliewidth, goalieheight);
   }
   

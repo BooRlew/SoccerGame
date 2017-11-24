@@ -38,10 +38,10 @@ void draw(){
     ball.dx *= -1;
     ball.dy *= -1;
   }
-  rect(sx,sy, sw,sh);
+  //rect(sx,sy, sw,sh);
 
-  fill(0, 150);
-  ellipse(cx,cy, r*2,r*2);
+  //fill(0, 150);
+  //ellipse(cx,cy, r*2,r*2);
 }
 
 boolean circleRect(float cx, float cy, float radius, float rx, float ry, float rw, float rh) {

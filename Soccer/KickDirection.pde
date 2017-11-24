@@ -7,7 +7,7 @@ class KickDirection {
   //constructor
   KickDirection() {
     //direction = 0;//random(-5, 5); 
-    timeInterval = 500;
+    timeInterval = 50;
   }
 
   //behaviour
@@ -16,13 +16,13 @@ class KickDirection {
     if (!someBall.ballmoving) {
       if (millis() > lastChange + timeInterval) {
         if (isRising) {
-          direction ++;
+          direction += 0.1;
           lastChange = millis();
           if (direction >= 5) {
             isRising = false;
           }
         } else if (!isRising) {
-          direction --;
+          direction -= 0.1;
           lastChange = millis();
           if (direction <= -5) {
             isRising = true;
@@ -31,6 +31,8 @@ class KickDirection {
       }
     }
     println(direction);
+    //rect(width/2 + direction*30, height/2 + height/6, 10, 10);
+    line(width/2, height/2 + height/4, width/2 + direction*30, height/2 + height/6); 
     return direction;
   }
 

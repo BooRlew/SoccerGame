@@ -12,12 +12,12 @@ class Ball {
     ballmoving = false;
 
     dx = 0;
-    dy = 0.2;
+    dy = 2;
   }
 
   //behaviour
   void display() {
-    //fill(255);
+    fill(255);
     ellipseMode(CENTER);
     ellipse(x, y, 50, 50);
   }
