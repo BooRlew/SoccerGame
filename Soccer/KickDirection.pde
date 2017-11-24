@@ -1,6 +1,6 @@
 class KickDirection {
   //data
-  int direction = 0;
+  float direction = 0;
   float timeInterval, lastChange;
   boolean isRising = true;
 
@@ -11,7 +11,7 @@ class KickDirection {
   }
 
   //behaviour
-  int kickChange(Ball someBall) {
+  float kickChange(Ball someBall) {
     //text(direction, width/2, height/2);
     if (!someBall.ballmoving) {
       if (millis() > lastChange + timeInterval) {
@@ -34,7 +34,4 @@ class KickDirection {
     return direction;
   }
 
-  int kickX() {
-    return direction;
-  }
 }

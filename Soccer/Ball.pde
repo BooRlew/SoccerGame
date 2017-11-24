@@ -22,20 +22,7 @@ class Ball {
     ellipse(x, y, 50, 50);
   }
 
-  //void changeX() {
-  //  if (!ballmoving) {
-  //    dx = kick.kickChange();
-  //  }
-  //}
-
-  void move() {//float _dx,float  _dy) {
-    //dx = _dx;
-    //dy = _dy;
-
-    //if (!ballmoving) {
-    //  dx = kick.kickChange(this);
-    //}
-    if (mousePressed) dx = kick.kickX();
+  void move() {
 
     x += dx; 
     y -= dy;
