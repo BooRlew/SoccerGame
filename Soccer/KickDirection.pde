@@ -11,27 +11,30 @@ class KickDirection {
   }
 
   //behaviour
-  void kickChange() {
+  int kickChange(Ball someBall) {
     //text(direction, width/2, height/2);
-    if (millis() > lastChange + timeInterval) {
-      if (isRising) {
-        direction ++;
-        lastChange = millis();
-        if (direction >= 5) {
-          isRising = false;
-        }
-      } else if (!isRising) {
-        direction --;
-        lastChange = millis();
-        if (direction <= -5) {
-          isRising = true;
+    if (!someBall.ballmoving) {
+      if (millis() > lastChange + timeInterval) {
+        if (isRising) {
+          direction ++;
+          lastChange = millis();
+          if (direction >= 5) {
+            isRising = false;
+          }
+        } else if (!isRising) {
+          direction --;
+          lastChange = millis();
+          if (direction <= -5) {
+            isRising = true;
+          }
         }
       }
     }
-  }
-  
-  int kickX() {
+    println(direction);
     return direction;
   }
 
+  int kickX() {
+    return direction;
+  }
 }

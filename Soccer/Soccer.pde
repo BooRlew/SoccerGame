@@ -2,7 +2,7 @@ Ball ball;
 Goalie goalie;
 KickDirection kick;
 
-boolean ballmoving = false;
+
 float xSpeed, ySpeed;
 
 void setup(){
@@ -20,9 +20,9 @@ void draw(){
   ball.display();
   goalie.displaygoalie();
   goalie.movegoalie();
-  text(kick.kickX(), width/2, height/2);
+  text(kick.kickChange(ball), width/2, height/2);
   
-  if (ballmoving == true){
+  if (ball.ballmoving == true){
     ball.move();
   }
   float cx = ball.x;
@@ -65,5 +65,6 @@ boolean circleRect(float cx, float cy, float radius, float rx, float ry, float r
 }
 
 void mousePressed(){
-  ballmoving = true;
+  ball.ballmoving = true;
+  ball.dx = kick.direction;
 }
