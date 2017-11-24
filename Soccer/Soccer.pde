@@ -20,7 +20,7 @@ void draw(){
   ball.display();
   goalie.displaygoalie();
   goalie.movegoalie();
-  kick.kickChange();
+  text(kick.kickX(), width/2, height/2);
   
   if (ballmoving == true){
     ball.move();

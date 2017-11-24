@@ -11,12 +11,8 @@ class KickDirection {
   }
 
   //behaviour
-  int kickX() {
-    return direction;
-  }
-
   void kickChange() {
-    text(direction, width/2, height/2);
+    //text(direction, width/2, height/2);
     if (millis() > lastChange + timeInterval) {
       if (isRising) {
         direction ++;
@@ -27,11 +23,15 @@ class KickDirection {
       } else if (!isRising) {
         direction --;
         lastChange = millis();
-        if (direction <= -5){
+        if (direction <= -5) {
           isRising = true;
         }
       }
     }
-    
   }
+  
+  int kickX() {
+    return direction;
+  }
+
 }

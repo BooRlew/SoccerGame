@@ -4,13 +4,12 @@ class Ball {
   float dx, dy;
   
   KickDirection kick;
-
   //constructor
   Ball() {
     x = width/2;
     y = height/2 + height/4;
     
-    kick = new KickDirection();
+    kick = new KickDirection(); 
     
     dx = kick.kickX();
     dy = 3;
@@ -26,6 +25,7 @@ class Ball {
   void move(){//float _dx,float  _dy) {
     //dx = _dx;
     //dy = _dy;
+    if (mousePressed) dx = kick.kickX();
     
     x += dx; 
     y -= dy;
