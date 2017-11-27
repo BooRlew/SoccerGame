@@ -5,24 +5,28 @@ KickDirection kick;
 
 float xSpeed, ySpeed;
 
-void setup(){
+void setup() {
   size(600, 800);
   frameRate(100);
-  
+
   ball = new Ball();
   goalie = new Goalie();
-  kick = new KickDirection(); 
+  kick = new KickDirection();
 }
 
-void draw(){
+void draw() {
   background(18, 183, 40);
-  
-  ball.display();
+
   goalie.displaygoalie();
   goalie.movegoalie();
-  text(kick.kickChange(ball), width/2, height/2);
-  
-  if (ball.ballmoving == true){
+  fill (0, 0);
+  if (ball.ballmoving == true) {
+  } else {
+    text(kick.kickChange(ball), width/2, height/2);
+  }
+  ball.display();
+
+  if (ball.ballmoving == true) {
     ball.move();
   }
   float cx = ball.x;
@@ -33,9 +37,9 @@ void draw(){
   float sw = goalie.goaliewidth;
   float sh = goalie.goalieheight;
 
-  boolean hit = circleRect(cx,cy,r, sx,sy,sw,sh);
+  boolean hit = circleRect(cx, cy, r, sx, sy, sw, sh);
   if (hit) {
-    ball.dx *= -1;
+    //ball.dx *= -1;
     ball.dy *= -1;
   }
   //rect(sx,sy, sw,sh);
@@ -64,7 +68,7 @@ boolean circleRect(float cx, float cy, float radius, float rx, float ry, float r
   return false;
 }
 
-void mousePressed(){
+void mousePressed() {
   ball.ballmoving = true;
   ball.dx = kick.direction;
 }
