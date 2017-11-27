@@ -19,7 +19,7 @@ void draw() {
 
   goalie.displaygoalie();
   goalie.movegoalie();
-  fill (0, 0);
+  
   if (ball.ballmoving == true) {
   } else {
     text(kick.kickChange(ball), width/2, height/2);
