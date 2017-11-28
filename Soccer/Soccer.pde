@@ -1,6 +1,7 @@
 Ball ball;
 Goalie goalie;
 KickDirection kick;
+Field net;
 
 
 float xSpeed, ySpeed;
@@ -12,6 +13,7 @@ void setup() {
   ball = new Ball();
   goalie = new Goalie();
   kick = new KickDirection();
+  net = new Field();
 }
 
 void draw() {
@@ -19,6 +21,8 @@ void draw() {
 
   goalie.displaygoalie();
   goalie.movegoalie();
+  
+  net.display();
   
   if (ball.ballmoving == true) {
   } else {
