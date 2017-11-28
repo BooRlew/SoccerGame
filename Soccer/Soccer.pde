@@ -31,7 +31,7 @@ void draw() {
   ball.display();
 
   if (ball.ballmoving == true) {
-    ball.move();
+    //ball.move();
   }
   float cx = ball.x;
   float cy = ball.y;
@@ -46,10 +46,6 @@ void draw() {
     //ball.dx *= -1;
     ball.dy *= -1;
   }
-  //rect(sx,sy, sw,sh);
-
-  //fill(0, 150);
-  //ellipse(cx,cy, r*2,r*2);
 }
 
 boolean circleRect(float cx, float cy, float radius, float rx, float ry, float rw, float rh) {
