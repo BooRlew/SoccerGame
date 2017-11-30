@@ -20,11 +20,10 @@ void setup() {
 
 void draw() {
   background(18, 183, 40);
-
-  goalie.displaygoalie();
-  goalie.movegoalie();
   
   net.display();
+  goalie.displaygoalie();
+  goalie.movegoalie();
   
   if (ball.ballmoving == true) {
   } else {
