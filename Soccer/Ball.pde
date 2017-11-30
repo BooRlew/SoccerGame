@@ -11,7 +11,7 @@ class Ball {
 
     ballmoving = false;
 
-    dx = 0;
+    dx = 2;
     dy = 2;
   }
 

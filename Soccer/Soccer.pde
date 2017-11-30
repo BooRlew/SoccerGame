@@ -2,6 +2,7 @@ Ball ball;
 Goalie goalie;
 KickDirection kick;
 Field net;
+kickspeed power;
 
 
 float xSpeed, ySpeed;
@@ -13,6 +14,7 @@ void setup() {
   ball = new Ball();
   goalie = new Goalie();
   kick = new KickDirection();
+  power = new kickspeed();
   net = new Field();
 }
 
@@ -27,11 +29,12 @@ void draw() {
   if (ball.ballmoving == true) {
   } else {
     text(kick.kickChange(ball), width/2, height/2);
+    text(kick.kickChange(ball), width/2+25, height/2+25);
   }
   ball.display();
 
   if (ball.ballmoving == true) {
-    //ball.move();
+    ball.move();
   }
   float cx = ball.x;
   float cy = ball.y;
@@ -71,4 +74,5 @@ boolean circleRect(float cx, float cy, float radius, float rx, float ry, float r
 void mousePressed() {
   ball.ballmoving = true;
   ball.dx = kick.direction;
+  ball.dy = power.ballspeed;
 }
