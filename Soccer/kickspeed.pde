@@ -7,9 +7,9 @@ class kickspeed{
   kickspeed(){
     ballspeed = 0;
   }
-    float kicksSpeed(Ball someBall) {
+  float kicksSpeed(Ball someBall) {
     //set the 'x' speed of the ball based on time passed
-    if (someBall.ballmoving) {
+    if (!  someBall.ballmoving) {
       
       if (millis() > lastChange + timeInterval) {
         
@@ -32,26 +32,26 @@ class kickspeed{
       }
     
   
-  //Create the indicator of direction
-    theta = map(ballspeed, -5, 5, 180, 0);
-    theta = radians(theta);
-    //println(theta);
+  ////Create the indicator of direction
+  //  theta = map(ballspeed, -5, 5, 180, 0);
+  //  theta = radians(theta);
+  //  //println(theta);
     
-    strokeWeight(5);
+  //  strokeWeight(5);
     
-    line(width/2, height/2 + height/4, width/2 + 100 * cos(theta),height/2 + height/4 - 100 * sin(theta));
+  //  line(width/2, height/2 + height/4, width/2 + 100 * cos(theta),height/2 + height/4 - 100 * sin(theta));
     
-    pushMatrix();
+  //  pushMatrix();
     
-    //draw the arrow
-    fill(255);
-    translate(width/2 + 100 * cos(theta),height/2 + height/4 - 100 * sin(theta));
-    rotate((theta) * -1);
-    triangle(0, 0, -10, -5, -10, 5);
+  //  //draw the arrow
+  //  fill(255);
+  //  translate(width/2 + 100 * cos(theta),height/2 + height/4 - 100 * sin(theta));
+  //  rotate((theta) * -1);
+  //  triangle(0, 0, -10, -5, -10, 5);
     
-    strokeWeight(1);
+  //  strokeWeight(1);
     
-    popMatrix();
+  //  popMatrix();
     return ballspeed;
   }
 }
