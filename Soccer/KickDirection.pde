@@ -55,6 +55,7 @@ class KickDirection {
     strokeWeight(1);
     
     popMatrix();
+    
     return direction;
   }
 

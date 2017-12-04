@@ -1,15 +1,16 @@
 class kickspeed{
-  float ballspeed;  
+  float ballspeed = 0;
   float timeInterval, lastChange;
   boolean isRising = true;
   float theta;
   
   kickspeed(){
-    ballspeed = 0;
+    //ballspeed = 0;
+    timeInterval = 10;
   }
-  float kicksSpeed(Ball someBall) {
-    //set the 'x' speed of the ball based on time passed
-    if (!  someBall.ballmoving) {
+  float kickSpeed(Ball someBall) {
+    //set the 'y' speed of the ball based on time passed
+    if (!someBall.ballmoving) {
       
       if (millis() > lastChange + timeInterval) {
         
@@ -17,14 +18,14 @@ class kickspeed{
           ballspeed += 0.1;
           lastChange = millis();
           
-          if (ballspeed >= 3.5) {
+          if (ballspeed >= 6) {
             isRising = false;
           }
         } else if (!isRising) {
           ballspeed -= 0.1;
           lastChange = millis();
           
-          if (ballspeed <= -3.5) {
+          if (ballspeed <= 1) {
             isRising = true;
             }
           }

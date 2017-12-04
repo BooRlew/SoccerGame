@@ -11,8 +11,8 @@ class Ball {
 
     ballmoving = false;
 
-    dx = 2;
-    dy = 2;
+    dx = 0;
+    dy = 0;
   }
 
   //behaviour

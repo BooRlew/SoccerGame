@@ -19,7 +19,7 @@ void setup() {
 }
 
 void draw() {
-  println((ball.dx));
+  println((ball.dy));
   background(18, 183, 40);
   
   net.display();
@@ -29,7 +29,7 @@ void draw() {
   if (ball.ballmoving == true) {
   } else {
     text(kick.kickChange(ball), width/2, height/2);
-    text(2, width/2+25, height/2+25);
+    text(power.kickSpeed(ball), width/2+25, height/2+25);
   }
   ball.display();
 
@@ -74,5 +74,5 @@ boolean circleRect(float cx, float cy, float radius, float rx, float ry, float r
 void mousePressed() {
   ball.ballmoving = true;
   ball.dx = kick.direction;
-  ball.dy = power.ballspeed+2;
+  ball.dy = power.ballspeed;
 }
