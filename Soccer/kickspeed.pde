@@ -1,58 +1,51 @@
-class kickspeed{
-  float ballspeed = 0;
+class kickspeed {
+  float ballspeed = 1;
   float timeInterval, lastChange;
   boolean isRising = true;
   float theta;
-  
-  kickspeed(){
+
+  kickspeed() {
     //ballspeed = 0;
     timeInterval = 10;
   }
   float kickSpeed(Ball someBall) {
     //set the 'y' speed of the ball based on time passed
-    if (!someBall.ballmoving) {
-      
+    if (!someBall.ballmoving && !powerLock) {
+
       if (millis() > lastChange + timeInterval) {
-        
+
         if (isRising) {
           ballspeed += 0.1;
           lastChange = millis();
-          
+
           if (ballspeed >= 6) {
             isRising = false;
           }
         } else if (!isRising) {
           ballspeed -= 0.1;
           lastChange = millis();
-          
+
           if (ballspeed <= 1) {
             isRising = true;
-            }
           }
         }
       }
-    
-  
-  ////Create the indicator of direction
-  //  theta = map(ballspeed, -5, 5, 180, 0);
-  //  theta = radians(theta);
-  //  //println(theta);
-    
-  //  strokeWeight(5);
-    
-  //  line(width/2, height/2 + height/4, width/2 + 100 * cos(theta),height/2 + height/4 - 100 * sin(theta));
-    
-  //  pushMatrix();
-    
-  //  //draw the arrow
-  //  fill(255);
-  //  translate(width/2 + 100 * cos(theta),height/2 + height/4 - 100 * sin(theta));
-  //  rotate((theta) * -1);
-  //  triangle(0, 0, -10, -5, -10, 5);
-    
-  //  strokeWeight(1);
-    
-  //  popMatrix();
+    }
+
+    image(meter, width/4, height/2 + height/4, 15, 100);
+
+    fill(0, 0);
+    rectMode(CORNER);
+    rect(width/4, height/2 + height/4, 15, 100);
+
+
+    fill(255);
+
+    theta = map(ballspeed, 1, 6, 100, 0);
+    fill(255);
+    triangle(width/4 + 4, height/2 + height/4 + theta, width/4 - 8, height/2 + height/4 + theta - 8, width/4 - 8, height/2 + height/4 + theta + 8);
+    fill(0);
+
     return ballspeed;
   }
 }

@@ -13,7 +13,7 @@ class KickDirection {
   //behaviour
   float kickChange(Ball someBall) {
     //set the 'x' speed of the ball based on time passed
-    if (!someBall.ballmoving) {
+    if (!someBall.ballmoving && !directionLock) {
       
       if (millis() > lastChange + timeInterval) {
         

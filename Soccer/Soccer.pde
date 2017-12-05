@@ -1,3 +1,18 @@
+//Made by; Luke and Richard
+
+
+//Use "z" to lock direction
+//use "x" to lock speed
+//click the mouse to shoot
+
+//Known issues;
+
+//Arrow sometimes doesn't line up with shot due to different power of kicks (most visible when arrow is all the way to either side and kick strength is maxed)
+//Collision is 'funky' at times
+//
+
+
+
 Ball ball;
 Goalie goalie;
 KickDirection kick;
@@ -7,10 +22,18 @@ kickspeed power;
 
 float xSpeed, ySpeed;
 int state, goals;
+boolean didScore;
+boolean directionLock, powerLock;
+
+PImage meter;
 
 void setup() {
+  //fullScreen();
   size(600, 800);
   frameRate(100);
+  
+  directionLock = false;
+  powerLock = false;
 
   state = 0;
   goals = 0;
@@ -20,12 +43,14 @@ void setup() {
   kick = new KickDirection();
   power = new kickspeed();
   net = new Field();
+  
+  meter = loadImage("meter.jpg");
 }
 
 void draw() {
   println(state);
   background(18, 183, 40);
-
+  
   textSize(30);
   text(goals, 10, 40);
   textSize(12);
@@ -54,8 +79,10 @@ void draw() {
 
     if (ball.ballmoving == true) {
     } else {
-      text(kick.kickChange(ball), width/2, height/2);
-      text(power.kickSpeed(ball), width/2+25, height/2+25);
+      kick.kickChange(ball);
+      power.kickSpeed(ball);
+      //text(kick.kickChange(ball), width/2, height/2);
+      //text(power.kickSpeed(ball), width/2+25, height/2+25);
     }
     ball.display();
 
@@ -78,18 +105,24 @@ void draw() {
 
     if (ball.x > 150 && ball.x < width - 150 && ball.y < 10 && ball.y > -10) {
       goals ++;
+      didScore = true;
       state = 3;
       
-    } else if (ball.x < 150 || ball.x > width - 150 && ball.y < 0) {
+    } else if (ball.x < 150 && ball.y < 0 || ball.x > width - 150 && ball.y < 0) {
       state = 3;
+      didScore = false;
       
-    } else if (ball.y > height) {
+    }
+    else if (ball.y > height) {
       state = 3;
+      didScore = false;
     }
   }
   if (state == 3) {
     net.display();
     textSize(45);
+    if (didScore) text("GOOOOAAAL!", 150, 450);
+    if (!didScore) text("NO GOAL!", 200, 450);
     text("Click to play again", 100, 500);
     textSize(12);
   }
@@ -115,8 +148,19 @@ boolean circleRect(float cx, float cy, float radius, float rx, float ry, float r
   return false;
 }
 
+void keyPressed(){
+  if (key == 'z' || key == 'Z'){
+    directionLock = true; 
+  }
+  if (key == 'x' || key == 'X'){
+    powerLock = true; 
+  }
+}
+  
+
+
 void mousePressed() {
-  if (state == 1) {
+  if (state == 1 && !ball.ballmoving && directionLock == true && powerLock == true) {
     ball.dx = kick.direction;
     ball.dy = power.ballspeed;
     ball.ballmoving = true;
@@ -128,5 +172,7 @@ void mousePressed() {
     kick = new KickDirection();
     power = new kickspeed();
     net = new Field();
+    directionLock = false;
+    powerLock = false;
   }
 }
